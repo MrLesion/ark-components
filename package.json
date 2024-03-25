@@ -1,12 +1,12 @@
 {
-  "name": "webcomponents",
+  "name": "ARK Web Components",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
     "start": "webpack serve"
   },
-  "author": "",
+  "author": "Lasse Hove Nielsen",
   "license": "ISC",
   "dependencies": {
     "@popperjs/core": "^2.11.8",

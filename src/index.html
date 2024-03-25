@@ -36,18 +36,24 @@
                                     <p class="card-text small text-muted">No. PROD1</p>
                                     
                                     <form>
-                                        <input type="hidden" name="productId" value="PROD1">
-                                        <ark-variants variant-id="Vo1.Vo2">
-                                            <input type="hidden" name="variantId" value="Vo1.Vo11">
-                                            <p class="card-text">Variant Number: <slot name="variantName">Red</slot></p>
-                                            <ark-dropdown title="Colors">
-                                                <slot name="option" value="Vo1">Red</slot>
-                                                <slot name="option" value="Vo2">Blue</slot>
-                                                <slot name="option" value="Vo3">Black</slot>
-                                            </ark-dropdown>
+                                        <input type="hidden" name="ProductID" value="PROD1">
+                                        <ark-variants variant-id="Vo1.Voy">
+                                            <input type="hidden" name="VariantID" value="Vo1.Voy">
+                                            <label>Colors</label>
+                                            <ark-choice type="select" input-name="GRPCOLOR" value="Vo1">
+                                                <slot value="Vo1" label="Red"></slot>
+                                                <slot value="Vo2" label="Blue"></slot>
+                                                <slot value="Vo3" label="Black"></slot>
+                                            </ark-choice>
+                                            <label>Size</label>
+                                            <ark-choice type="select" input-name="GRPSIZE" value="Voy">
+                                                <slot value="Vox" label="S"></slot>
+                                                <slot value="Voy" label="M"></slot>
+                                                <slot value="Voz" label="L"></slot>
+                                            </ark-choice>
                                         </ark-variants>
                                         <div class="input-group mb-3">
-                                            <input type="number" name="quantity" min="1" value="1" class="form-control" required>
+                                            <input type="number" name="Quantity" min="1" value="1" class="form-control" required>
                                             <ark-cart-button class="btn btn-primary" endpoint="/">Add to cart</ark-cart-button>
                                         </div>
                                     </form>
@@ -69,14 +75,26 @@
                                             <p class="card-text small text-muted">No. PROD1</p>
                                             <p class="card-text">Variant Number: Vo1.Vo2</p>
                                             <form>
-                                                <input type="hidden" name="productId" value="PROD1">
-                                                <input type="hidden" name="variantId" value="Vo1.Vo2">
+                                                <input type="hidden" name="ProductID" value="PROD1">
+                                                <ark-variants class="d-flex" variant-id="Vo1.Voy">
+                                                    <input type="hidden" name="VariantID" value="Vo1.Voy">
+                                                    <label>Colors</label>
+                                                    <ark-choice type="select" input-name="GRPCOLOR" value="Vo1">
+                                                        <slot value="Vo1" label="Red"></slot>
+                                                        <slot value="Vo2" label="Blue"></slot>
+                                                        <slot value="Vo3" label="Black"></slot>
+                                                    </ark-choice>
+                                                    <label>Size</label>
+                                                    <ark-choice type="select" input-name="GRPSIZE" value="Voy">
+                                                        <slot value="Vox" label="S"></slot>
+                                                        <slot value="Voy" label="M"></slot>
+                                                        <slot value="Voz" label="L"></slot>
+                                                    </ark-choice>
+                                                </ark-variants>
                                                 <div class="input-group mb-3">
-                                                    <input name="quantity" type="number" min="1" value="1" class="form-control" required>
+                                                    <input type="number" name="Quantity" min="1" value="1" class="form-control" required>
                                                     <ark-cart-button class="btn btn-primary" endpoint="/">Add to cart</ark-cart-button>
                                                 </div>
-
-                                                
                                             </form>
                                         </div>
                                     </div>

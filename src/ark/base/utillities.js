@@ -13,4 +13,17 @@ const parseAttribute = (value) => {
     return value;
 }
 
-export {parseAttribute}
+const mapAttributes = (elements) => {
+    let returnValue = [];
+    elements.forEach((element) =>{
+        const attributes = {};
+        Array.from(element.getAttributeNames()).forEach(attrName => {
+            attributes[attrName] = parseAttribute(element.getAttribute(attrName));
+        });
+        returnValue.push(attributes);
+    });
+    return returnValue;
+    
+}
+
+export {parseAttribute, mapAttributes}

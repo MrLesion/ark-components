@@ -5,7 +5,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, './src/index.js'),
         arkMain: path.resolve(__dirname, './src/ark/index.js'),
         arkCarousel: path.resolve(__dirname, './src/ark/carousel/index.js'),
         arkProductForm: path.resolve(__dirname, './src/ark/product-form/index.js'),
@@ -39,8 +38,8 @@ module.exports = {
     },
     
     plugins: [    
-        new HtmlWebpackPlugin({ title: 'Web Components',      
-            template: path.resolve(__dirname, './src/template.html'),
+        new HtmlWebpackPlugin({ title: 'ARK Web Components',      
+            template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html', 
         }),
         new CleanWebpackPlugin(),

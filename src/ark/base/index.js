@@ -20,7 +20,7 @@ class BaseArkElement extends HTMLElement{
      * It should run any required rendering.
      */
     connectedCallback(){
-        this.addEventListener('click', this, false);
+        //this.addEventListener('click', this, false);
     }
 
     /***
@@ -28,7 +28,7 @@ class BaseArkElement extends HTMLElement{
      * This may be useful if you need to clean up, such as removing stored state or aborting Ajax requests.
      ***/
     disconnectedCallback(){
-        this.removeEventListener('click', this, false);
+        //this.removeEventListener('click', this, false);
     }
 
     /***
@@ -42,7 +42,7 @@ class BaseArkElement extends HTMLElement{
      * @param event
      */
     handleEvent(event){
-        console.log(`fired: ${event.type}`)
+        //console.log(`fired: ${event.type}`)
     }
 
     /***
@@ -56,6 +56,19 @@ class BaseArkElement extends HTMLElement{
         if(oldValue === null || oldValue === newValue){
             return;
         }
+    }
+    
+    /***
+     * Dispatched a custom event on the component
+     * @param event
+     * @param details
+     ***/
+    emit(event, details){
+        const customEvent = new CustomEvent(event, {
+            bubbles: true,
+            detail: details
+        });
+        this.dispatchEvent(customEvent);
     }
 }
 

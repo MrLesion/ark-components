@@ -67,7 +67,7 @@ class arkCarousel extends BaseArkElement {
             }
             if(event.target.dataset.slideTo !== undefined){
                 this.currentSlide = parseInt(event.target.dataset.slideTo);
-                this.emitEvent(`ark.carousel.slide`, {
+                this.emit(`ark.carousel.slide`, {
                     slideFrom: currentSlide,
                     slideTo: this.currentSlide
                 });
@@ -89,14 +89,6 @@ class arkCarousel extends BaseArkElement {
         if(event.type === 'resize'){
             this.slideTo();
         }
-    }
-
-    emitEvent(eventType, details) {
-        const customEvent = new CustomEvent(eventType, {
-            bubbles: true,
-            detail: details
-        });
-        this.dispatchEvent(customEvent);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -149,7 +141,7 @@ class arkCarousel extends BaseArkElement {
             }
         }
 
-        this.emitEvent(`ark.carousel.slide`, {
+        this.emit(`ark.carousel.slide`, {
             slideFrom: currentSlide,
             slideTo: this.currentSlide
         });

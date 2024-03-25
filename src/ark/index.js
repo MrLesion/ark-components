@@ -1,2 +1,3 @@
+import './style/index.scss'
 import './base/components/icon'
-import './base/components/dropdown'
+import './base/components/choice'
