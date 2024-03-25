@@ -1,0 +1,159 @@
+@import "bootstrap/scss/bootstrap";
+
+pdf-preview iframe{
+  left: auto;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  box-shadow: -5px 0 10px rgba(0,0,0,0.5);
+}
+
+ark-icon{
+  line-height: 0;
+  cursor: pointer;
+}
+
+//Product Form
+
+ark-cart-button{
+  transition: opacity .2s ease;
+  &[is-busy="true"]{
+    opacity: .5;
+    pointer-events: none;
+  }
+}
+
+//Carousel
+:root{
+  --primary-carousel-color: rgba(47, 79, 79, 1);
+}
+
+ark-carousel {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  .ark-carousel-container{
+    position: relative;
+    display: block;
+    
+    .ark-carousel-slides{
+      max-width: 100%;
+      position: relative;
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    
+    ark-carousel-slide {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      flex: 1 0 100%;
+      backface-visibility: hidden;
+      &::before{
+        content: "";
+        display: block;
+        padding-top: 56.25%;
+
+      }
+      video, img, iframe{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        user-select: none;
+        //pointer-events: none;
+      }
+    }
+  }
+  
+  .ark-carousel-arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4em;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    &:hover, &:focus{
+      opacity: 1;
+    }
+    &.prev{
+      left: 0;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+    }
+    &.next{
+      right: 0;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+  }
+  
+  .ark-carousel-dots{
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    left: 0;
+    bottom: 0;
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10px;
+    .ark-carousel-dot{
+      background-color: white;
+      border: 1px solid rgba(0,0,0,.5);;
+      border-radius: 50%;
+      //width: 10px;
+      //height: 10px;
+      padding: 4px;
+      margin: .2em;
+      cursor: pointer;
+      //transition: all .1s ease;
+      will-change: padding;
+      &.active{
+        padding: 6px;
+        background-color: var(--primary-carousel-color);
+      }
+    }
+  }
+  .ark-carousel-thumbs{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin:1em 0 0 0;
+    padding: 0;
+    .ark-carousel-thumb {
+      cursor: pointer;
+      margin: 0 5px;
+      width: 50px;
+      height: 50px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.5);
+      padding: 5px;
+      transition: all .1s ease;
+      &.active{
+        background-color: var(--primary-carousel-color);
+        box-shadow: inset 0 0 0 3px var(--primary-carousel-color);
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Components</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        pdf-preview iframe{
+            left: auto;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            position: absolute;
+            box-shadow: -5px 0 10px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <modal-dialog id="primary-modal" show="false">
+                <template>
+                    <div class="modal-inner p-4">
+                        <span class="close-modal" close>&times;</span>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h1>primary MODAL</h1>
+                                    <p>I be modal</p>
+                                    <a href="#" close>I be close btn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </modal-dialog>
+            <modal-button class="btn btn-primary" target="primary-modal">Open primary Modal</modal-button>
+
+            <modal-dialog id="secondary-modal" show="false">
+                <template>
+                    <div class="modal-inner">
+                        <span class="close-modal" close>&times;</span>
+                        <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <h1>secondary MODAL</h1>
+                                <test-component class="p-3 mb-2 d-block text-primary text-center border">I nested be test component</test-component>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </template>
+            </modal-dialog>
+            <modal-button class="btn btn-secondary" target="secondary-modal">Open secondary Modal</modal-button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <button type="button" id="tester">tester</button>
+            <pdf-preview render="0"></pdf-preview>
+        </div>
+    </div>
+</div>
+<script src="src/modal-component.js"></script>
+<script src="src/test-component.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/pdfmake.min.js" integrity="sha512-w61kvDEdEhJPJLSAJpuL+RWp1+zTBUUpgPaP+6pcqCk78wQkOaExjnGWrVbovojeisWGQS7XZKz+gr3L+GPYLg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/vfs_fonts.js" integrity="sha512-nNkHPz+lD0Wf0eFGO0ZDxr+lWiFalFutgVeGkPdVgrG4eXDYUnhfEj9Zmg1QkrJFLC0tGs8ZExyU/1mjs4j93w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="src/pdf-preview.js"></script>
+<script>
+    document.getElementById('tester').addEventListener('click', () =>{
+        const preview = document.querySelector('pdf-preview');
+        const docDefinition = {
+            content: [
+                'First paragraph',
+                'Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines'
+            ]
+        }
+        preview.querySelector('#pdf-preview-model-script').textContent = JSON.stringify(docDefinition);
+        preview.setAttribute('render', '1')
+    })
+</script>
+</body>
+</html>

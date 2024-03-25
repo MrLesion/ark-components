@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+
+<body>
+    <div id="root">
+        
+        <div class="container my-4">
+            <div class="row border py-2">
+                <div class="col-12">
+                    <h4>The Product Name</h4>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="position-relative">
+                                <ark-carousel current-slide="0" ratio="16x9" navigation="arrows,dots,thumbs">
+                                    <ark-carousel-slide src="https://placehold.co/600x400" type="image"></ark-carousel-slide>
+                                    <ark-carousel-slide src="https://placehold.co/600x400/000000/FFF" type="image"></ark-carousel-slide>
+                                    <ark-carousel-slide src="https://placehold.co/600x400/000000/F00" type="image"></ark-carousel-slide>
+                                    <ark-carousel-slide src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" 
+                                                        type="video" 
+                                                        autoplay="false"
+                                                        poster="https://cdn.wallpapersafari.com/37/22/Ow2dbD.jpg"></ark-carousel-slide>
+                                </ark-carousel>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    The Product Name
+                                    <ark-icon class="text-danger" icon="heart" width="20" />
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">1.500,00 DKK</h5>
+                                    <p class="card-text small text-muted">No. PROD1</p>
+                                    
+                                    <form>
+                                        <input type="hidden" name="productId" value="PROD1">
+                                        <ark-variants variant-id="Vo1.Vo2">
+                                            <input type="hidden" name="variantId" value="Vo1.Vo11">
+                                            <p class="card-text">Variant Number: <slot name="variantName">Red</slot></p>
+                                            <ark-dropdown title="Colors">
+                                                <slot name="option" value="Vo1">Red</slot>
+                                                <slot name="option" value="Vo2">Blue</slot>
+                                                <slot name="option" value="Vo3">Black</slot>
+                                            </ark-dropdown>
+                                        </ark-variants>
+                                        <div class="input-group mb-3">
+                                            <input type="number" name="quantity" min="1" value="1" class="form-control" required>
+                                            <ark-cart-button class="btn btn-primary" endpoint="/">Add to cart</ark-cart-button>
+                                        </div>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <ark-product-card class="col-12 col-sm-6 col-md-4 col-xl-3 my-3" link="/">
+                                    <div class="card">
+                                        <img src="https://placehold.co/600x400/000000/FFF" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h3 class="card-title d-flex justify-content-between align-items-center">
+                                                Product Name
+                                                <ark-icon class="text-danger" icon="heart" width="20" />
+                                            </h3>
+                                            <h5 class="card-title">1.500,00 DKK</h5>
+                                            <p class="card-text small text-muted">No. PROD1</p>
+                                            <p class="card-text">Variant Number: Vo1.Vo2</p>
+                                            <form>
+                                                <input type="hidden" name="productId" value="PROD1">
+                                                <input type="hidden" name="variantId" value="Vo1.Vo2">
+                                                <div class="input-group mb-3">
+                                                    <input name="quantity" type="number" min="1" value="1" class="form-control" required>
+                                                    <ark-cart-button class="btn btn-primary" endpoint="/">Add to cart</ark-cart-button>
+                                                </div>
+
+                                                
+                                            </form>
+                                        </div>
+                                    </div>
+                                </ark-product-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
